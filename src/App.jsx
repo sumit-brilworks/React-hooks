@@ -1,3 +1,4 @@
+import Parent from "./components/Parent";
 import Search from "./components/Search";
 import { Profiler } from "react";
 function App() {
@@ -22,8 +23,12 @@ function App() {
   return (
     <>
       <div>Hello world</div>
+
       <Profiler id="Main" onRender={onRender}>
-        <Search />
+        <Parent>
+          <Parent />
+          <div>Hello world</div>
+        </Parent>
       </Profiler>
     </>
   );
