@@ -2,9 +2,12 @@ import React, { useMemo, useState } from "react";
 
 function App2() {
   const [vat, setVal] = useState(0);
-  const callmemoFunc = useMemo(() => {
-    return new Promise((res) => setTimeout(() => res(vat), 5000));
-  }, [vat]);
+  const callmemoFunc = useMemo(
+    (a, b) => {
+      return new Promise((res) => setTimeout(() => res(vat), 5000));
+    },
+    [vat]
+  );
   const getMemo = () => {
     console.log(callmemoFunc.then((res) => console.log(res)));
   };
